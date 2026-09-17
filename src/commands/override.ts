@@ -7,11 +7,7 @@ import {
   Embed,
 } from "seyfert";
 import isUserAdmin from "@utils/isUserAdmin.js";
-import {
-  createEmbed,
-  createFailureEmbed,
-  finishEmbed,
-} from "@utils/createEmbed.js";
+import { finishEmbed } from "@utils/createEmbed.js";
 import { getMinecraft } from "@bridge/load.js";
 
 const options = {
