@@ -1,26 +1,38 @@
 // config interface
 export interface Config {
-  email: string;
+  branding: Branding;
+  account: Account;
   guildChat: GuildChat;
   officerChat: OfficerChat;
   logs: Logs;
   permission: Permission;
 }
 
+interface Branding {
+  name: string;
+  color: string;
+  colorFail: string;
+}
+
+interface Account {
+  email: string;
+}
+
 interface GuildChat {
-  channelId: number;
+  channelId: string;
   webhookURL: string;
 }
 
 interface OfficerChat {
-  channelId: number;
+  enabled: boolean;
+  channelId: string;
   webhookURL: string;
 }
 
 interface Logs {
-  channelId: number;
+  channelId: string;
 }
 
 interface Permission {
-  adminRoles: number[];
+  adminRoles: string[];
 }

@@ -1,0 +1,22 @@
+[branding]
+name = "Sculk"
+color = "#127b80"
+color_fail = "#042228"
+
+[account]
+email = ""
+
+[guild_chat]
+channel_id = "0"
+webhook_url = ""
+
+[officer_chat]
+enabled = false
+channel_id = "0"
+webhook_url = ""
+
+[logs]
+channel_id = "0"
+
+[permission]
+admin_roles = ["0"]
