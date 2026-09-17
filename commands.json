@@ -1,11 +1,1 @@
-[
-  {
-    "name": "ping",
-    "type": 1,
-    "nsfw": false,
-    "description": "Show latency with Discord",
-    "contexts": [0, 1, 2],
-    "integration_types": [0],
-    "options": []
-  }
-]
+[{"name":"ping","type":1,"nsfw":false,"description":"Show latency with Discord","contexts":[0,1,2],"integration_types":[0],"options":[]},{"name":"override","type":1,"nsfw":false,"description":"Send a message or command through the guild bot.","contexts":[0,1,2],"integration_types":[0],"options":[{"name":"msg","description":"The message to send. Append a / to turn it into a command.","required":true,"type":3,"name_localizations":{},"description_localizations":{},"autocomplete":false}]}]
