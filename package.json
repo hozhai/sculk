@@ -1,0 +1,26 @@
+{
+  "name": "sculk.js",
+  "private": true,
+  "type": "module",
+  "module": "index.ts",
+  "scripts": {
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix"
+  },
+  "dependencies": {
+    "mineflayer": "^4.39.0",
+    "seyfert": "^5.1.0",
+    "smol-toml": "^1.8.0"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.68.0",
+    "oxlint": "^1.83.0",
+    "oxlint-tsgolint": "^7.0.2001",
+    "tsx": "^4.23.13"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
