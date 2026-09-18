@@ -1,22 +1,76 @@
+################################
+# Welcome to the Sculk config! #
+################################
+
+# Branding related config
 [branding]
+# The name of the bot. Name it whatever - make this your own!
 name = "Sculk"
+# Main color of the embeds.
 color = "#127b80"
+# Color for when an embed displays a failure.
 color_fail = "#042228"
 
+# Account related config
 [account]
+# The email of the guild bot's Minecraft account;
+# it can also be a random set of numbers and characters.
+# Make sure you change this if you switch accounts for the guild bot!
 email = ""
 
+# Bridge related config
+[bridge]
+# Whether to add a link to a user's Skycrypt whenever they join/leave the server.
+# It will appear as a Markdown link, not a literal link.
+skycrypted_usernames = true
+# The separator for the ingame chat. For example, if the separator is set to ": " and the prefix is set to [DC], it'll look like this:
+# Guild > [MVP+] YourGuildBotName: [DC] YourDCUsername: hello!! 
+#                                here's the separator ^^
+separator = ": "
+# The format of the webhook's name!
+# - {rank} -> displays the Hypixel rank of the user (not recommended, as non-ranked players will make this look awkward).
+# - {user} -> the Minecraft username.
+# - {role} -> their guild rank (e.g. [GM]).
+webhook_format = "{user} [{role}]"
+# The text that goes before the username in the ingame chat.
+# Guild > [MVP+] YourGuildBotName: [DC] YourDCUsername: hello!! 
+#                here's the prefix ^^^^
+prefix = "[DC]"
+# Replaces every mention of "discord" in the Discord bridge channel with "disc0rd" to get rid of that annoying warning message .
+bypass_discord_string = true
+# Hides the kicker's name when kicking someone out of the guild.
+anonymize_kicker = false
+# Replace any URLs sent through the Discord into "[link]" when sent to guild chat.
+replace_link = true
+# Replace any files/images sent through the Discord into "[attachment]" when sent to guild chat.
+replace_attachment = true
+
+# Config related specifically to guild chat
 [guild_chat]
+# The ID of the channel people should use to communicate ingame.
 channel_id = "0"
+# The URL of the webhook to use when sending ingame messages to the Discord.
 webhook_url = ""
 
+# Config related specifically to officer chat
 [officer_chat]
+# Whether to enable this functionality. Note that keeping this as `false` will NOT mix
+# regular guild chat with officer chat.
 enabled = false
+# The ID of the channel staff should use to communicate with other staff ingame.
 channel_id = "0"
+# The URL of the webhook to use when sending ingame messages to the Discord.
 webhook_url = ""
 
+# Config related to logging data
 [logs]
+# The ID of the channel where join, leave, and kick messages should be sent. 
+# Most guilds have this to the same channel as people talk in (the one you
+# defined under the [guild_chat] field.
 channel_id = "0"
 
+# Config related to permissions
 [permission]
+# A list of role IDs separated by commas. These roles will have the ability to use
+# commands such as /override, a.k.a. commands that directly manage the bot.
 admin_roles = ["0"]
