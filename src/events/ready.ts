@@ -1,3 +1,4 @@
+import handleChatMessage from "@bridge/handleChatMessage.js";
 import { getMinecraft } from "@bridge/load.js";
 import { createEvent } from "seyfert";
 
@@ -9,12 +10,14 @@ export default createEvent({
     );
 
     // load mineflayer
-    getMinecraft();
+    const minecraft = getMinecraft();
 
-    // we HAVE to call getMinecraft() every time
-    // otherwise we get a bunch of errors :)
-    getMinecraft().on("spawn", () => {
-      getMinecraft().chat("/limbo");
+    minecraft.on("spawn", () => {
+      minecraft.chat("/limbo");
+    });
+
+    minecraft.on("messagestr", async (message) => {
+      await handleChatMessage(message, client);
     });
 
     client.logger.info(`Succesfully connected and executed /limbo`);

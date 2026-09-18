@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import { parse } from "smol-toml";
-import type { Config } from "../types/config.js";
+import type { Config } from "../types/index.js";
 
 let config: Config | null;
 
