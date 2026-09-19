@@ -18,6 +18,7 @@ export default createEvent({
 
     const minecraft = getMinecraft();
     const separator = getConfig().bridge.separator;
+    const prefix = getConfig().bridge.prefix;
 
     if (
       message.channelId === config.officerChat.channelId &&
@@ -39,11 +40,29 @@ export default createEvent({
 
     const urlPattern =
       /[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/gi;
-    messageContent = messageContent.replace(urlPattern, "[URL removed]");
+    messageContent = messageContent.replace(urlPattern, "[link]");
+
+    if (message.attachments.length > 0) {
+      messageContent += "[attachment(s)]";
+    }
+
+    const nonMessageLength =
+      prefix.length +
+      message.author.username.length +
+      separator.length +
+      "/gc ".length;
+
+    if (messageContent.length > 256 - nonMessageLength) {
+      messageContent = messageContent.slice(
+        0,
+        256 - (nonMessageLength + "...".length)
+      );
+      messageContent += "...";
+    }
 
     addPendingMessage(message);
     minecraft.chat(
-      `/gc ${message.author.username}${separator}${messageContent}`
+      `/gc ${prefix}${message.author.username}${separator}${messageContent}`
     );
   },
 });
