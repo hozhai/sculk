@@ -23,7 +23,7 @@ export default async function handleChatMessage(
     message.includes("left the guild!");
 
   if (!isGuildMessage && isInOutMessage) {
-    handleGuildInOutMessage(message, client);
+    await handleGuildInOutMessage(message, client);
     return;
   }
 
