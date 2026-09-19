@@ -1,6 +1,6 @@
-################################
-# Welcome to the Sculk config! #
-################################
+################
+# Sculk config #
+################
 
 # Branding related config
 [branding]
@@ -34,8 +34,10 @@ separator = ": "
 webhook_format = "{user} [{role}]"
 # The text that goes before the username in the ingame chat.
 # Guild > [MVP+] YourGuildBotName: [DC] YourDCUsername: hello!! 
-#                here's the prefix ^^^^
-prefix = "[DC]"
+#                here's the prefix ^^^^^
+#               (note how there is a space after [DC])
+# Leave empty for no prefix.
+prefix = "[DC] "
 # Replaces every mention of "discord" in the Discord bridge channel with "disc0rd" to get rid of that annoying warning message .
 bypass_discord_string = true
 # Hides the kicker's name when kicking someone out of the guild.
