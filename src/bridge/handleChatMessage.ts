@@ -31,7 +31,7 @@ export default async function handleChatMessage(
     return;
   }
 
-  const guildMessage = message.slice(8);
+  const guildMessage = message.slice(8).split("\n")[0];
 
   // AI generated regular expression
   const joinLeaveMatch = guildMessage.match(/^(.+)\s+(joined|left)\.$/);
