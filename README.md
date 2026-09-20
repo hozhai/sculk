@@ -63,3 +63,7 @@ Contributions are always welcome! Fork the repository, make sure the commits fol
 Here's the Discord server (link WIP) you can join for support, bug reports, and suggestions!
 
 Sculk is a personal project with no monetary incentive. I use my own free time to work on this project, just because I like playing Hypixel. If you have the time and ability, please check out my Ko-fi!
+
+## License
+
+This project is licensed under the [MIT license](./LICENSE.md).
