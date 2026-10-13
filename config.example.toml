@@ -49,9 +49,9 @@ replace_attachment = true
 
 # Config related specifically to guild chat
 [guild_chat]
-# The ID of the channel people should use to communicate ingame.
+# The ID of the channel people should use to communicate to the ingame guild chat.
 channel_id = "0"
-# The URL of the webhook to use when sending ingame messages to the Discord.
+# The URL of the webhook to use when sending ingame messages to Discord.
 webhook_url = ""
 
 # Config related specifically to officer chat
