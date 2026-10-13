@@ -5,17 +5,21 @@ import handleJoinLeaveMessage from "./handleJoinLeaveMessage.js";
 import { CANNOT_SAY_MESSAGE_TWICE } from "../constants/global.js";
 import { reactToPendingMessage } from "./pendingMessages.js";
 import handleGuildInOutMessage from "./handleGuildInOutMessage.js";
+import handleOfficerChatMessage from "./handleOfficerChatMessage.js";
+import { getConfig } from "@config/load.js";
 
 export default async function handleChatMessage(
   message: string,
   client: Client
 ) {
-  // TODO: implement officer chat
   if (message === CANNOT_SAY_MESSAGE_TWICE) {
     reactToPendingMessage("❌");
     return;
   }
 
+  const config = getConfig();
+
+  const isOfficerChatMessage = message.startsWith("Officer >");
   const isGuildMessage = message.startsWith("Guild >");
   const isInOutMessage =
     message.includes("joined the guild!") ||
@@ -24,6 +28,19 @@ export default async function handleChatMessage(
 
   if (!isGuildMessage && isInOutMessage) {
     await handleGuildInOutMessage(message, client);
+    return;
+  }
+
+  const officerChatMessage = message.slice(9).split("\n")[0];
+
+  const officerChatMatch = officerChatMessage.match(
+    /^\[([^\]]+)\]\s+(\S+)(?:\s+\[([^\]]+)\])?:\s*(.*)$/
+  );
+
+  if (isOfficerChatMessage && officerChatMatch && config.officerChat.enabled) {
+    const [, rank, username, role, content] = officerChatMatch;
+
+    await handleOfficerChatMessage(rank, username, role, content, client);
     return;
   }
 
@@ -50,15 +67,15 @@ export default async function handleChatMessage(
   }
 
   // AI generated regular expression
-  const match = guildMessage.match(
+  const guildMessageMatch = guildMessage.match(
     /^\[([^\]]+)\]\s+(\S+)(?:\s+\[([^\]]+)\])?:\s*(.*)$/
   );
 
-  if (!match) {
+  if (!guildMessageMatch) {
     client.logger.warn(`Unrecognized guild message: ${message}`);
     return;
   }
 
-  const [, rank, username, role, content] = match;
+  const [, rank, username, role, content] = guildMessageMatch;
   await handleGuildMessage(rank, username, role, content, client);
 }

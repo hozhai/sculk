@@ -20,18 +20,6 @@ export default createEvent({
     const separator = getConfig().bridge.separator;
     const prefix = getConfig().bridge.prefix;
 
-    if (
-      message.channelId === config.officerChat.channelId &&
-      config.officerChat.enabled
-    ) {
-      addPendingMessage(message);
-      minecraft.chat(
-        `/gc ${message.author.username}${separator}${message.content}`
-      );
-      return;
-    }
-
-    // TODO: implement officer chat
     let messageContent = message.content;
 
     if (config.bridge.bypassDiscordString) {
@@ -62,6 +50,17 @@ export default createEvent({
         256 - (nonMessageLength + "...".length)
       );
       messageContent += "...";
+    }
+
+    if (
+      message.channelId === config.officerChat.channelId &&
+      config.officerChat.enabled
+    ) {
+      addPendingMessage(message);
+      minecraft.chat(
+        `/oc ${message.author.username}${separator}${messageContent}`
+      );
+      return;
     }
 
     addPendingMessage(message);
