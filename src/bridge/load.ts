@@ -17,3 +17,7 @@ export function getMinecraft(): mineflayer.Bot {
 
   return minecraft;
 }
+
+export function setMinecraft(newMinecraft: mineflayer.Bot) {
+  return minecraft = newMinecraft
+}

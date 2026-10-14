@@ -1,4 +1,4 @@
-import handleChatMessage from "@bridge/handleChatMessage.js";
+import applyEvents from "@bridge/applyEvents.js";
 import { getMinecraft } from "@bridge/load.js";
 import { createEvent } from "seyfert";
 
@@ -12,14 +12,6 @@ export default createEvent({
     // load mineflayer
     const minecraft = getMinecraft();
 
-    minecraft.on("spawn", () => {
-      minecraft.chat("/limbo");
-    });
-
-    minecraft.on("messagestr", async (message) => {
-      await handleChatMessage(message, client);
-    });
-
-    client.logger.info(`Succesfully connected and executed /limbo`);
+    applyEvents(minecraft, client);
   },
 });
