@@ -9,7 +9,7 @@
 
 ## What is Sculk?
 
-Sculk is a highly customizable Hypixel guild bot that not only provides a bridge to communicate from Discord to the in-game guild chat and viceversa, it also **aims** to provide guild EXP tracking, and much more!
+Sculk is a highly customizable Hypixel guild bot that not only provides a bridge to communicate from Discord to the in-game guild chat and viceversa, it also **aims** to provide guild EXP tracking in the future, and much more!
 
 
 ## Features
@@ -25,6 +25,8 @@ Sculk's current features are as follows:
   * Option to replace `discord` with `disc0rd` to prevent that annoying message from popping up for everyone
   * Option to replace URLs sent from the Discord with `[link]` in-game.
   * Option to replace attachments sent from the Discord with `[attachment(s)]` in-game.
+* Discord <-> Officer chat (/oc) bridge
+  * Option to enable/disable this functionality
 * Guild join, leave, and kick messages
   * Option to embed a [SkyCrypt](https://sky.shiiyu.moe) link into usernames when joining/leaving the server
   * Option to anonymize the kicker
@@ -34,10 +36,8 @@ Sculk's current features are as follows:
 
 Sculk is not finished! Here are some of the things Sculk aims to implement in the future (keep in mind that this list may be changed or modified at any time):
 
-* Discord <-> Officer chat (/oc) bridge
-  * Option to enable/disable this functionality
 * Event reminders
-  * Sends a reminder for events such as the Dark Auction, 
+  * Sends a reminder for events such as the Dark Auction, Farming Contest, etc.
 * Guild commands
   * These are prefix commands that can be executed from both the in-game chat and the Discord channel.
     * Customizable prefix (default `s!`)
