@@ -12,12 +12,16 @@ export default async function handleChatMessage(
   message: string,
   client: Client
 ) {
+  const config = getConfig();
+
+  if (config.bridge.printMessagesToConsole) {
+    client.logger.info(message);
+  }
+
   if (message === CANNOT_SAY_MESSAGE_TWICE) {
     reactToPendingMessage("❌");
     return;
   }
-
-  const config = getConfig();
 
   const isOfficerChatMessage = message.startsWith("Officer >");
   const isGuildMessage = message.startsWith("Guild >");
@@ -31,8 +35,9 @@ export default async function handleChatMessage(
     return;
   }
 
-  const officerChatMessage = message.slice(9).split("\n")[0];
+  const officerChatMessage = message.slice(10).split("\n")[0];
 
+  // AI generated regular expression
   const officerChatMatch = officerChatMessage.match(
     /^\[([^\]]+)\]\s+(\S+)(?:\s+\[([^\]]+)\])?:\s*(.*)$/
   );

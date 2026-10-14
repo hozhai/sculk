@@ -20,11 +20,14 @@ email = ""
 
 # Bridge related config
 [bridge]
+# Whether to print all of the guild and officer chat messages to the console.
+# Useful for debugging.
+print_messages_to_console = true
 # Whether to add a link to a user's Skycrypt whenever they join/leave the server.
 # It will appear as a Markdown link, not a literal link.
 skycrypted_usernames = true
 # The separator for the ingame chat. For example, if the separator is set to ": " and the prefix is set to [DC], it'll look like this:
-# Guild > [MVP+] YourGuildBotName: [DC] YourDCUsername: hello!! 
+# Guild > [MVP+] YourGuildBotName: [DC] YourDCUsername: hello!!
 #                                here's the separator ^^
 separator = ": "
 # The format of the webhook's name!
@@ -33,7 +36,7 @@ separator = ": "
 # - {role} -> their guild rank (e.g. [GM]).
 webhook_format = "{user} [{role}]"
 # The text that goes before the username in the ingame chat.
-# Guild > [MVP+] YourGuildBotName: [DC] YourDCUsername: hello!! 
+# Guild > [MVP+] YourGuildBotName: [DC] YourDCUsername: hello!!
 #                here's the prefix ^^^^^
 #               (note how there is a space after [DC])
 # Leave empty for no prefix.
@@ -66,7 +69,7 @@ webhook_url = ""
 
 # Config related to logging data
 [logs]
-# The ID of the channel where join, leave, and kick messages should be sent. 
+# The ID of the channel where join, leave, and kick messages should be sent.
 # Most guilds have this to the same channel as people talk in (the one you
 # defined under the [guild_chat] field.
 channel_id = "0"

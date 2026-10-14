@@ -20,6 +20,7 @@ interface Account {
 }
 
 interface Bridge {
+  printMessagesToConsole: boolean;
   skycryptedUsernames: boolean;
   separator: string;
   webhookFormat: string;
