@@ -11,7 +11,7 @@ export default async function handleGuildMessage(
   content: string,
   client: Client
 ) {
-  const botUsername = getMinecraft().username;
+  const botUsername = getMinecraft().player.username;
 
   if (botUsername.toLowerCase() === username.toLowerCase()) {
     removePendingMessage();
