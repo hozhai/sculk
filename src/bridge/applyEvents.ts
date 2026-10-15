@@ -6,6 +6,7 @@ import reconnect from "./reconnect.js";
 export default function applyEvents(minecraft: mineflayer.Bot, client: Client) {
   minecraft.on("spawn", () => {
     minecraft.chat("/limbo");
+    client.logger.info(`Succesfully connected and executed /limbo`);
   });
 
   minecraft.on("messagestr", async (message) => {
@@ -29,5 +30,4 @@ export default function applyEvents(minecraft: mineflayer.Bot, client: Client) {
     client.logger.error(`- Message: ${err.message}`)
   })
 
-  client.logger.info(`Succesfully connected and executed /limbo`);
 }
