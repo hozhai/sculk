@@ -11,6 +11,11 @@
 
 Sculk is a highly customizable Hypixel guild bot that not only provides a bridge to communicate from Discord to the in-game guild chat and viceversa, it also **aims** to provide guild EXP tracking in the future, and much more!
 
+## Config
+
+Check out the config in [config.example.toml](./config.example.toml)!
+
+If you'd like to run this guild bot yourself, make sure to duplicate [config.example.toml](./config.example.toml) and rename it to `config.toml`. Make your changes in the new `config.toml`.
 
 ## Features
 
@@ -52,7 +57,7 @@ Sculk is not finished! Here are some of the things Sculk aims to implement in th
   * `s!8ball` - your average 8ball command
   * `s!dice [number]` - rolls an n-sided dice (defaults to n = 6)
 
-Feel free to suggest more features in the Discord (link WIP)!
+Feel free to suggest more features in the [Discord](https://discord.gg/Q7JvCxMkjU)!
 
 ## Contributing
 
